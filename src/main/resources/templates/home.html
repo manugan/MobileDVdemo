@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <title>Demo App</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css"/>
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Address Book</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Page 1</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="#">Page 3</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <table class="table">
+
+        <thead class="thead-inverse">
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        </thead>
+        <!--/*--><!--@thymesVar id="entries" type="List<com.example.model.AddressbookEntry>"--><!--*/-->
+        <tr th:each="entry:${entries}">
+            <th scope="row" th:text="${entry.id}">Id</th>
+            <td th:text="${entry.firstName}">FirstName</td>
+            <td th:text="${entry.lastName}">LastName</td>
+        </tr>
+
+
+    </table>
+</div>
+</body>
+</html>
