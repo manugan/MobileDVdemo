@@ -15,6 +15,7 @@ target/
 *.ipr
 .mvn
 mongodb-data2/
+mongodb-data/
 
 ### NetBeans ###
 nbproject/private/
