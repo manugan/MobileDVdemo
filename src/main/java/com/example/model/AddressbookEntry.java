@@ -1,6 +1,7 @@
 package com.example.model;
 
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
@@ -8,12 +9,23 @@ import java.io.Serializable;
 /**
  * Created by Manu on 10/10/2016.
  * MongoDB specific Document class
+ * Persistent Document Class
  */
 @Document
 public class AddressbookEntry implements Serializable {
 
-    private String firstName, lastName, id, phone, country, city, zip, street;
+    /* new object id is generated automatically through annotation */
+    @Id
+    private String id;
+    private String title, firstName, lastName, phone, country, city, zip, street;
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getPhone() {
         return phone;
@@ -63,18 +75,8 @@ public class AddressbookEntry implements Serializable {
 
         AddressbookEntry that = (AddressbookEntry) o;
 
-        if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
-        if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
-        return id != null ? id.equals(that.id) : that.id == null;
+        return id.equals(that.id);
 
-    }
-
-    @Override
-    public int hashCode() {
-        int result = firstName != null ? firstName.hashCode() : 0;
-        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
-        result = 31 * result + (id != null ? id.hashCode() : 0);
-        return result;
     }
 
     public String getLastName() {

@@ -15,7 +15,7 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">All Entries</a></li>
-            <li><a href="#">Create Entry</a></li>
+            <li><a href="/new">Create Entry</a></li>
         </ul>
     </div>
 </nav>
@@ -27,15 +27,27 @@
             <th>#</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Phone</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>ZIP</th>
+            <th>Street</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
-        <!--/*--><!--@thymesVar id="entries" type="List<com.example.model.AddressbookEntry>"--><!--*/-->
-        <tr th:each="entry:${entries}">
+        <!--/*@thymesVar id="entries" type="List<com.example.model.AddressbookEntry>"*/-->
+        <tr th:each="entry : ${entries}">
             <th scope="row" th:text="${entry.id}">Id</th>
-            <td th:text="${entry.firstName}">FirstName</td>
-            <td th:text="${entry.lastName}">LastName</td>
+            <td th:text="${entry.firstName}">First Name</td>
+            <td th:text="${entry.lastName}">Last Name</td>
+            <td th:text="${entry.phone}">Phone</td>
+            <td th:text="${entry.country}">Country</td>
+            <td th:text="${entry.city}">City</td>
+            <td th:text="${entry.zip}">ZIP</td>
+            <td th:text="${entry.street}">Street</td>
             <td><a th:href="@{'/edit/' + ${entry.id}}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
-            <td><a th:href="@{'/delete/' + ${entry.id}}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+            <td><a th:href="@{'/delete/' + ${entry.id}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
         </tr>
 
 

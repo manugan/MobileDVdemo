@@ -23,25 +23,37 @@ public class AddressbookService {
     }
 
     /**
-     * get all DB entries
+     * retrieves all persisted entries
      *
-     * @return
+     * @return an empty list if no entries were found
      */
     public List<AddressbookEntry> findAll() {
         return addressbookEntryRepository.findAll();
     }
 
+    /**
+     * Find the entry by the given id
+     *
+     * @param id of the entry
+     * @return returns <code>null</code> if no such entry exists
+     */
     public AddressbookEntry findById(final String id) {
         return addressbookEntryRepository.findOne(id);
     }
 
+    /**
+     * Deletes the entry with the given id
+     *
+     * @param id of the entry
+     */
     public void delete(final String id) {
         this.addressbookEntryRepository.delete(id);
     }
 
     /**
      * save one {@link AddressbookEntry}
-     * @param entry
+     *
+     * @param entry given
      * @return the persisted entry
      */
     public AddressbookEntry save(final AddressbookEntry entry) {

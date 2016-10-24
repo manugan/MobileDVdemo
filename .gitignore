@@ -13,6 +13,8 @@ target/
 *.iws
 *.iml
 *.ipr
+.mvn
+mongodb-data2/
 
 ### NetBeans ###
 nbproject/private/
