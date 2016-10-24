@@ -4,10 +4,8 @@ import com.example.model.AddressbookEntry;
 import com.example.service.AddressbookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -49,6 +47,7 @@ public class HomeController {
 
     /**
      * Delete the entry with the specified id
+     * path variable is shown as get variable in URL
      *
      * @param id of the entry
      * @return the redirect url
@@ -57,5 +56,22 @@ public class HomeController {
     public String deleteEntry(@PathVariable("id") final String id) {
         this.addressbookService.delete(id);
         return "redirect:/";
+    }
+
+
+    /**
+     * Search for pattern variable in LastName
+     *
+     * @param pattern
+     * @return
+     */
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    /* model: list of entries, view: home view */
+    public ModelAndView searchByLastName(@RequestParam("pattern") final String pattern) {
+
+        final ModelAndView view = new ModelAndView("home");
+        view.addObject("entries", this.addressbookService.findByLastNameLike(pattern));
+
+        return view;
     }
 }

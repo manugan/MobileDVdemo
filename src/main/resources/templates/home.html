@@ -17,6 +17,16 @@
             <li class="active"><a href="#">All Entries</a></li>
             <li><a href="/new">Create Entry</a></li>
         </ul>
+        <div class="collapse navbar-collapse">
+            <form class="navbar-form navbar-right" role="search" action="/search" method="get">
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="Search" name="pattern" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+        </div>
     </div>
 </nav>
 <div class="container">
@@ -25,6 +35,7 @@
         <thead class="thead-inverse">
         <tr>
             <th>#</th>
+            <th>Title</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Phone</th>
@@ -39,6 +50,7 @@
         <!--/*@thymesVar id="entries" type="List<com.example.model.AddressbookEntry>"*/-->
         <tr th:each="entry : ${entries}">
             <th scope="row" th:text="${entry.id}">Id</th>
+            <td th:text="${entry.title}">Title</td>
             <td th:text="${entry.firstName}">First Name</td>
             <td th:text="${entry.lastName}">Last Name</td>
             <td th:text="${entry.phone}">Phone</td>

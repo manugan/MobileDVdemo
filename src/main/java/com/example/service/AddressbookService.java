@@ -62,4 +62,8 @@ public class AddressbookService {
         }
         return this.addressbookEntryRepository.save(entry);
     }
+
+    public List<AddressbookEntry> findByLastNameLike(String pattern) {
+        return addressbookEntryRepository.findByLastNameLike(pattern);
+    }
 }
