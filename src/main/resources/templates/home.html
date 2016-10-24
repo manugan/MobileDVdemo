@@ -14,10 +14,8 @@
             <a class="navbar-brand" href="#">Address Book</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Page 1</a></li>
-            <li><a href="#">Page 2</a></li>
-            <li><a href="#">Page 3</a></li>
+            <li class="active"><a href="#">All Entries</a></li>
+            <li><a href="#">Create Entry</a></li>
         </ul>
     </div>
 </nav>
@@ -36,6 +34,8 @@
             <th scope="row" th:text="${entry.id}">Id</th>
             <td th:text="${entry.firstName}">FirstName</td>
             <td th:text="${entry.lastName}">LastName</td>
+            <td><a th:href="@{'/edit/' + ${entry.id}}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+            <td><a th:href="@{'/delete/' + ${entry.id}}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
         </tr>
 
 
