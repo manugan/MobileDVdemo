@@ -19,6 +19,18 @@ public class AddressbookEntry implements Serializable {
     private String id;
     private String title, firstName, lastName, phone, country, city, zip, street;
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AddressbookEntry that = (AddressbookEntry) o;
+
+        return id.equals(that.id);
+
+    }
+
     public String getTitle() {
         return title;
     }
@@ -65,18 +77,6 @@ public class AddressbookEntry implements Serializable {
 
     public void setStreet(String street) {
         this.street = street;
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        AddressbookEntry that = (AddressbookEntry) o;
-
-        return id.equals(that.id);
-
     }
 
     public String getLastName() {

@@ -15,6 +15,8 @@ import java.util.List;
 @Repository
 public interface AddressbookEntryRepository extends MongoRepository<AddressbookEntry, String> {
 
-
+/* automatically gets recognized by MongoDB to be a 'Like' statement on 'LastName'
+ PROBLEM: Upper/Lowercase is not ignored by this automatic function
+ */
     List<AddressbookEntry> findByLastNameLike(String pattern);
 }

@@ -47,6 +47,19 @@ public class EditEntryController {
     }
 
     /**
+     * delete given entry
+     *
+     * @param id of the entry
+     * @return list of entries
+     */
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public String deleteEntry(@PathVariable("id") final String id) {
+        this.addressbookService.delete(id);
+        return "redirect:/";
+    }
+
+
+    /**
      * Show view for creating new entries
      *
      * @return view to create new entries
